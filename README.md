@@ -1,17 +1,12 @@
 # Code-samples for using gcloud and Python Client Library for Google Compute Engine
 
-Here are some examples of using gcloud with shell scripts and python scripts and also using the Python Client Library APIs to perform some basic automation. The objective of this is to provide an overview of how to get started using gcloud and Python Client Library and solve some everyday automation requirements.
+This repository contains some examples of using gcloud with shell scripts and python scripts and also using the Python Client Library APIs to perform some basic automation. 
 
 Refer to https://medium.com/google-cloud/using-gcloud-to-get-google-cloud-platform-data-you-need-c4985b416278 for more details
 
-## Disclaimer and other important comments
-
-* Completeness - The scripts here are provided to serve as an example of using gcloud and the Python Client Library. They are in no way complete solutions in themselves.
-* Coding best practices - In real-world deployment you should think about coding best practices, such as, error checking/handling, functionality to check and wait for actions to complete, log/print meaningful messages and so on
-
 ## Prerequisites
 
-This works while using the Google cloud shell. I haven't tested it using the SDK on the personal computer but it should work. Check https://cloud.google.com/sdk/install if you want to try it out.
+The scripts work when tested using the Google cloud shell. This is not tested with SDK on the personal computer, but it should work. Check https://cloud.google.com/sdk/install if you want to try it out.
 
 ## Few points about the environment/setup used in the examples
 
@@ -24,6 +19,11 @@ Please feel free to try the code and add/suggest new functionality and approache
 ## Authors
 
 * **Shashank Joshi** https://github.com/shashyajoshi/
+
+## Disclaimer and other important comments
+
+* Completeness - The scripts here are provided to serve as an example of using gcloud and the Python Client Library. They are in no way complete solutions in themselves.
+* Coding best practices - In real-world deployment you should think about coding best practices, such as, error checking/handling, functionality to check and wait for actions to complete, log/print meaningful messages and so on
 
 ## License
 
