@@ -1,3 +1,13 @@
+# Author: Shashank Joshi
+#
+# Refer to the README under code-samples for details
+#
+# The code is provided on an "AS IS" BASIS, WITHOUT WARRANTIES
+# OR CONDITIONS OF ANY KIND, either express or implied.
+# See LICENSE under code-samples for more details
+
+"""Example of using Compute Engine APIs to start & stop instances based on label values"""
+
 import googleapiclient.discovery
 from oauth2client.client import GoogleCredentials
 
@@ -39,16 +49,20 @@ def execute_instance_action(compute_client, project_list, instance_action,label_
                         print action_result
 
 def main():
+    # Label key and value to identify instances and execute the specfied action
+    # You can get the values from command-line arguments
     label_key = "env-name"
     label_value = "non-prod"
     instance_action = "stop"
-
+    # Use default credentials
     credentials = GoogleCredentials.get_application_default()
+    # Build and initialize the API
     compute_client = googleapiclient.discovery.build('compute', 'v1', credentials=credentials)
     cloud_billing_client = googleapiclient.discovery.build('cloudbilling', 'v1', credentials=credentials)
 
-    billing_id = get_billing_id(cloud_billing_client)
-    project_list = get_project_list(cloud_billing_client,billing_id)
+    billing_id = get_billing_id(cloud_billing_client) # get billing id
+    project_list = get_project_list(cloud_billing_client,billing_id) # get project list for the given billing id
+    # Execute action on instances with the specified label key values
     execute_instance_action(compute_client,project_list,instance_action,label_key,label_value)
 
 if __name__ == "__main__":

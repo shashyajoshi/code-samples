@@ -1,3 +1,13 @@
+# Author: Shashank Joshi
+#
+# Refer to the README under code-samples for details
+#
+# The code is provided on an "AS IS" BASIS, WITHOUT WARRANTIES
+# OR CONDITIONS OF ANY KIND, either express or implied.
+# See LICENSE under code-samples for more details
+
+"""Example of using Compute Engine APIs to get instance labels and metadata"""
+
 import googleapiclient.discovery
 from oauth2client.client import GoogleCredentials
 
@@ -18,7 +28,7 @@ def get_instance_data(compute_client, project_list):
     # Get list & details of all instances for all projects in the project list
     output = []
     for project_id in project_list:
-        # First need to get the list of zones
+        # First get the list of zones
         zone_list = []
         zone_result = compute_client.zones().list(project=project_id).execute()
         for zone_rows in zone_result['items']:
@@ -46,15 +56,17 @@ def write_output(header_row,output):
         print ','.join(row)
 
 def main():
+    # Change the header row based on your requirement
     header_row = "project_id,name,labels-app-name,labels-biz-unit,labels-env-name,metadata-server-role,metadata-server-type,metadata-os-image"
-
+    # Use default credentials
     credentials = GoogleCredentials.get_application_default()
+    # Build and initialize the API
     compute_client = googleapiclient.discovery.build('compute', 'v1', credentials=credentials)
     cloud_billing_client = googleapiclient.discovery.build('cloudbilling', 'v1', credentials=credentials)
 
-    billing_id = get_billing_id(cloud_billing_client)
-    project_list = get_project_list(cloud_billing_client,billing_id)
-    output = get_instance_data(compute_client,project_list)
+    billing_id = get_billing_id(cloud_billing_client) # get billing id
+    project_list = get_project_list(cloud_billing_client,billing_id) # get project list for the given billing id
+    output = get_instance_data(compute_client,project_list) # get instance details for the list of projects
     write_output(header_row,output)
 
 

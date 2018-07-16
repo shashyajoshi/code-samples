@@ -1,18 +1,29 @@
+# Author: Shashank Joshi
+#
+# Refer to the README under code-samples for details
+#
+# The code is provided on an "AS IS" BASIS, WITHOUT WARRANTIES
+# OR CONDITIONS OF ANY KIND, either express or implied.
+# See LICENSE under code-samples for more details
+
+"""Example of using gcloud & Python to start & stop instances based on label values"""
+
 import subprocess
 import json
 import shlex
 
-# Label key and value to identofy instances and execute the specfied action
+# Label key and value to identify instances and execute the specfied action
+# You can get the values from command-line arguments
 label_key = "env-name"
 label_value = "non-prod"
 instance_action = "stop"
-# Execute the gcloud command to get a list of projects in json format
+# Execute the gcloud command to get a list of projects
 # and load data in JSON format for further processing
 project_list_command = "gcloud projects list --format json"
 project_output = subprocess.check_output(shlex.split(project_list_command))
 project_output_json = json.loads(project_output)
 
-# For each project id in the list, get the instance details and load in JSON information
+# For each project id in the list, get the instance details
 for project_row in project_output_json:
     project_id = project_row["projectId"]
     instance_list_command = "gcloud compute instances list --format json --project "+ project_id
