@@ -44,4 +44,4 @@ for project_row in project_output_json:
             else:
                 print "Disk %s is not attached to any instance and is labeled for delete protection\n" % disk_name
         else:
-            print "Disk %s is attached to instance %s\n" % (disk_name, ''.join(disk_row["users"].split('/')[-1:]))
+            print "Disk %s is attached to instance %s\n" % (disk_name, ''.join(disk_row["users"][0].split('/')[-1:]))
