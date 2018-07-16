@@ -35,7 +35,7 @@ for project_row in project_output_json:
         instance_zone = ""
         if instance_row["labels"][label_key] == label_value:
             instance_name = instance_row["name"]
-            instance_zone = instance_row["zone"]
+            instance_zone = ''.join(instance_row["zone"].split('/')[-1:])
             instance_action_command = "gcloud compute instances " + instance_action + " " \
                 + instance_name + " --zone " + instance_zone + " --project " + project_id
             print "Executing command \"" + instance_action_command + "\""
