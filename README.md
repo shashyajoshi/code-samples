@@ -3,8 +3,8 @@
 This repository contains some examples of using gcloud with shell scripts and python scripts and also using the Python Client Library APIs to perform some basic automation. 
 
 Refer to the following posts for more details:
-https://medium.com/google-cloud/using-gcloud-to-get-google-cloud-platform-data-you-need-c4985b416278 
-https://medium.com/google-cloud/using-gcloud-and-python-client-library-with-google-compute-engine-eaf1b19d8099
+* https://medium.com/google-cloud/using-gcloud-to-get-google-cloud-platform-data-you-need-c4985b416278 
+* https://medium.com/google-cloud/using-gcloud-and-python-client-library-with-google-compute-engine-eaf1b19d8099
 
 ## Prerequisites
 
@@ -31,4 +31,4 @@ Please feel free to try the code and add/suggest new functionality and approache
 
 See the [LICENSE.md](LICENSE.md) file for details
 
-#GoogleCloudPlatform #GoogleComputeEngine #GoogleCloudSDK #gcloud
+**#GoogleCloudPlatform #GoogleComputeEngine #GoogleCloudSDK #gcloud**
